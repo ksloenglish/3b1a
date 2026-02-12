@@ -4,7 +4,7 @@
 <meta name="x-poe-datastore-behavior" content="local_only">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Oxford 3000 B1 Revision Exercise (1-454)</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -413,13 +413,18 @@
         text-align: center;
     }
 
-    /* Tablet and Mobile Responsiveness */
-    @media (max-width: 1024px) {
+    /* Tablet and Mobile Responsiveness - UPDATED */
+    /* Increased breakpoint to 1366px to include iPad Pro landscape */
+    @media (max-width: 1366px) {
         body {
-            /* FIX: Changed alignment to start from top on mobile */
+            /* FIX: Ensure content starts from top, not vertically centered */
             align-items: flex-start; 
-            padding: 15px; 
+            /* FIX: Add specific padding to top to prevent "sinking" feeling but keep it clear of edge */
+            padding: 20px;
+            padding-top: max(30px, env(safe-area-inset-top)); 
             min-height: 100vh;
+            /* Fix for iOS Safari/Chrome height calculation */
+            min-height: -webkit-fill-available;
         }
         
         .app-container {
@@ -429,9 +434,8 @@
             display: flex;
             flex-direction: column;
             background-color: rgba(255, 255, 255, 0.92);
-            /* FIX: Added margin-top to ensure it doesn't stick to the very top edge */
-            margin-top: 20px;
-            margin-bottom: 20px;
+            /* FIX: Removed large margin-top, relying on body padding for cleaner layout */
+            margin: 0 auto 20px auto;
         }
 
         /* Compact Header */
