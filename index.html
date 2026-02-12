@@ -1,0 +1,1465 @@
+<!DOCTYPE html><html lang="en"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<meta name="x-poe-datastore-behavior" content="local_only">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oxford 3000 B1 Revision Exercise (1-454)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+        /* Contemporary Gradient - Richer Purple to Soft Blue */
+        --bg-gradient: linear-gradient(135deg, #d8b4fe 0%, #a78bfa 50%, #818cf8 100%);
+        
+        /* Glass Effect */
+        --glass-bg: rgba(255, 255, 255, 0.90);
+        --glass-border: rgba(255, 255, 255, 0.6);
+        
+        /* Colors */
+        --primary-accent: #7c3aed; /* Violet 600 */
+        --primary-hover: #6d28d9; /* Violet 700 */
+        --text-main: #1e293b; /* Slate 800 */
+        --text-muted: #64748b; /* Slate 500 */
+        --correct-color: #059669; /* Emerald 600 */
+        --incorrect-color: #e11d48; /* Rose 600 */
+        --shadow-color: rgba(124, 58, 237, 0.2);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--bg-gradient);
+        /* Add a subtle pattern overlay for texture */
+        background-image: var(--bg-gradient), radial-gradient(#ffffff 1px, transparent 1px);
+        background-size: 100% 100%, 20px 20px;
+        background-attachment: fixed;
+        color: var(--text-main);
+        margin: 0;
+        padding: 20px; /* Ensure padding exists on all screens */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        line-height: 1.5;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #c4b5fd;
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #a855f7;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 850px;
+        background-color: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: 0 25px 50px -12px var(--shadow-color);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        /* Ensure container doesn't touch edges on mobile */
+        margin: auto; 
+    }
+
+    /* Decorative element */
+    .app-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 60%);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    header {
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    header h1 {
+        color: var(--primary-accent);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0;
+        font-weight: 600;
+        opacity: 0.9;
+    }
+
+    header h2 {
+        font-size: 1.8rem;
+        margin: 5px 0;
+        font-weight: 700;
+        background: linear-gradient(to right, #7c3aed, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* Screens */
+    #start-screen, #quiz-screen, #end-screen {
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    #start-screen h3 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        font-weight: 500;
+        color: var(--text-main);
+    }
+
+    .question-count-options {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn {
+        background: linear-gradient(135deg, var(--primary-accent), var(--primary-hover));
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.3);
+        font-family: inherit;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.5);
+        filter: brightness(1.1);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+    }
+
+    /* Quiz Header */
+    #quiz-screen .quiz-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        background: rgba(241, 245, 249, 0.6);
+        padding: 10px 15px;
+        border-radius: 12px;
+        gap: 10px;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    #question-counter, #score-counter {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        white-space: nowrap;
+    }
+
+    #score-counter {
+        color: var(--primary-accent);
+    }
+
+    #return-btn {
+        background: white;
+        border: 1px solid #cbd5e1;
+        color: var(--text-muted);
+        padding: 6px 14px;
+        font-size: 0.8rem;
+        border-radius: 8px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        white-space: nowrap;
+    }
+    #return-btn:hover {
+        background: #f8fafc;
+        color: var(--text-main);
+        border-color: #94a3b8;
+        transform: none;
+    }
+
+    /* Question Area */
+    #question-text {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        margin: 20px 0;
+        min-height: 60px;
+        font-weight: 400;
+        color: var(--text-main);
+    }
+
+    .blank {
+        display: inline-block;
+        width: 120px;
+        border-bottom: 2px solid var(--primary-accent);
+        margin: 0 6px;
+        vertical-align: -5px;
+    }
+
+    /* Options Grid */
+    #options-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    /* UPDATED OPTION BUTTON STYLES - VIBRANT GRADIENT */
+    .option-btn {
+        width: 100%;
+        /* Vibrant Purple/Violet Gradient */
+        background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+        
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        
+        color: #ffffff;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        
+        padding: 14px 16px;
+        border-radius: 14px;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: inherit;
+        position: relative;
+        overflow: hidden;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .option-btn:hover:not(:disabled) {
+        background: linear-gradient(135deg, #b794f4 0%, #8b5cf6 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px -5px rgba(124, 58, 237, 0.4);
+        border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .option-btn.correct {
+        background: linear-gradient(135deg, #34d399 0%, #059669 100%); /* Emerald Gradient */
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        color: white;
+    }
+
+    .option-btn.incorrect {
+        background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%); /* Rose Gradient */
+        border-color: rgba(255, 255, 255, 0.5);
+        color: white;
+        opacity: 0.9;
+    }
+
+    .option-btn:disabled {
+        cursor: default;
+        transform: none !important;
+    }
+
+    /* Feedback Area */
+    #feedback-container {
+        min-height: 50px;
+        margin-top: 15px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(241, 245, 249, 0.5);
+        border-radius: 12px;
+        padding: 8px;
+    }
+
+    #next-btn {
+        margin-top: 15px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* End Screen */
+    #end-screen h2 {
+        font-size: 1.8rem;
+        color: var(--text-main);
+    }
+
+    #final-score {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(to bottom right, var(--primary-accent), #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 5px 0;
+        line-height: 1;
+    }
+
+    #end-comment {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 30px;
+        font-weight: 300;
+    }
+
+    /* Revision List */
+    #revision-container {
+        margin-top: 30px;
+        text-align: left;
+        max-height: 350px;
+        overflow-y: auto;
+        border-top: 1px solid rgba(0,0,0,0.06);
+        padding: 20px 10px 10px 10px;
+    }
+
+    #revision-container h3 {
+        margin-top: 0;
+        color: var(--text-main);
+        font-weight: 600;
+    }
+
+    #revision-list .revision-item {
+        background-color: white;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        border-left: 4px solid var(--primary-accent);
+        transition: background-color 0.2s;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        border: 1px solid #f1f5f9;
+    }
+
+    #revision-list .revision-item:hover {
+        background-color: #f8fafc;
+    }
+
+    #revision-list .revision-item p {
+        margin: 0 0 6px 0;
+        line-height: 1.4;
+    }
+
+    #revision-list .revision-item .word-info {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--primary-accent);
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    #revision-list .revision-item .word-info span {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-weight: 400;
+    }
+
+    #revision-list .revision-item .sentence-info {
+        color: var(--text-main);
+        font-style: italic;
+        opacity: 0.9;
+        font-size: 0.95rem;
+    }
+
+    #revision-list .revision-item .sentence-info strong {
+        color: var(--correct-color);
+        font-style: normal;
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-color: rgba(5, 150, 105, 0.4);
+        text-underline-offset: 4px;
+    }
+
+    footer {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0,0,0,0.06);
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    /* Tablet and Mobile Responsiveness */
+    @media (max-width: 1024px) {
+        body {
+            /* KEEP PADDING so background is visible */
+            padding: 15px; 
+            align-items: flex-start; /* Aligns container to top */
+        }
+        
+        .app-container {
+            padding: 20px;
+            /* Maintain rounded corners */
+            border-radius: 20px; 
+            /* Remove full height restriction so it looks like a card */
+            min-height: auto; 
+            display: flex;
+            flex-direction: column;
+            /* Slightly more transparent on mobile to blend better */
+            background-color: rgba(255, 255, 255, 0.92);
+        }
+
+        /* Compact Header */
+        header {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        header h1 {
+            font-size: 0.75rem;
+            margin-bottom: 2px;
+        }
+        header h2 {
+            font-size: 1.4rem;
+            margin: 2px 0;
+        }
+        header p {
+            font-size: 0.85rem;
+        }
+        
+        /* Compact Quiz Header */
+        #quiz-screen .quiz-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 5px 10px;
+            padding: 8px 12px;
+            margin-bottom: 15px;
+        }
+
+        #question-counter {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+
+        #score-counter {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: right;
+            font-size: 0.8rem;
+        }
+
+        #return-btn {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            width: 100%;
+            margin-top: 2px;
+            padding: 6px;
+            font-size: 0.8rem;
+        }
+
+        /* Compact Question Text */
+        #question-text {
+            font-size: 1.15rem;
+            line-height: 1.4;
+            margin: 0 0 15px 0;
+            min-height: auto;
+            flex-grow: 0;
+        }
+        
+        .blank {
+            width: 80px;
+            border-bottom-width: 1px;
+        }
+        
+        /* Compact Options Grid */
+        #options-container {
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .option-btn {
+            padding: 12px;
+            font-size: 0.95rem;
+            border-radius: 10px;
+        }
+        
+        /* Compact Feedback & Footer */
+        #feedback-container {
+            min-height: 40px;
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+
+        #next-btn {
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        .question-count-options .btn {
+            padding: 10px 20px;
+            flex: 1 1 30%;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 10px;
+            font-size: 0.7rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <h1>K S Lo English</h1>
+        <h2>Oxford 3000 B1<br>Revision Exercise</h2>
+        <p>Words 1 (absolutely) - 454 (level)</p>
+    </header>
+
+    <main>
+        <div id="start-screen">
+            <h3>How many questions would you like to attempt?</h3>
+            <div class="question-count-options">
+                <button class="btn" onclick="startGame(10)">10</button>
+                <button class="btn" onclick="startGame(20)">20</button>
+                <button class="btn" onclick="startGame(30)">30</button>
+                <button class="btn" onclick="startGame(40)">40</button>
+                <button class="btn" onclick="startGame(50)">50</button>
+                <button class="btn" onclick="startGame(100)">100</button>
+            </div>
+        </div>
+
+        <div id="quiz-screen">
+            <div class="quiz-header">
+                <div id="question-counter"></div>
+                <div id="score-counter"></div>
+                <button id="return-btn" class="btn">Return to Title</button>
+            </div>
+            <p id="question-text"></p>
+            <div id="options-container"></div>
+            <div id="feedback-container"></div>
+            <button id="next-btn" class="btn" style="display: none;">Next Question</button>
+        </div>
+
+        <div id="end-screen">
+            <h2>Quiz Complete!</h2>
+            <p>You scored:</p>
+            <div id="final-score"></div>
+            <p id="end-comment"></p>
+            <button id="restart-btn" class="btn">Start Again</button>
+            <div id="revision-container" style="display: none;">
+                <h3>Review Your Answers</h3>
+                <div id="revision-list"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © <span id="copyright-year"></span> K S Lo English. All Rights Reserved.
+    </footer>
+</div>
+
+<script>
+    // Raw data from CSV (1-454)
+    // Note: Entries without example sentences in the source (150, 199, 312) have been excluded to prevent errors.
+    const rawData = [
+{id: 1, w: "absolutely", p: "adv", d: "完全地；絕對地", s: "I trusted him absolutely because he was always honest."},
+{id: 2, w: "academic", p: "adj", d: "學校的；學院的；學術的", s: "She enjoys studying academic subjects like history and science."},
+{id: 3, w: "access", p: "n", d: "通道；途徑；（接近某地或某人的）機會（或方法）；（使用某物的）權利", s: "The only access to the village is by boat."},
+{id: 4, w: "access", p: "v", d: "讀取（電腦文檔）", s: "We asked if the computer could access the internet."},
+{id: 5, w: "accommodation", p: "n", d: "住處；工作場所；停留處", s: "There is currently a shortage of cheap accommodation available."},
+{id: 6, w: "account", p: "n", d: "帳戶，戶口", s: "I've opened an account with a building society."},
+{id: 7, w: "achievement", p: "n", d: "成就，成績；功績", s: "An Olympic silver medal is a remarkable achievement for one so young."},
+{id: 8, w: "act", p: "n", d: "行為；作為；所做之事", s: "Saving the child was a true act of bravery."},
+{id: 9, w: "ad", p: "n", d: "廣告（advertisement的非正式說法）", s: "I often prefer the ads on TV to the actual programmes."},
+{id: 10, w: "addition", p: "n", d: "加法", s: "The children are learning basic math skills like addition."},
+{id: 11, w: "admire", p: "v", d: "欣賞；羨慕", s: "We stood for a few moments, admiring the view."},
+{id: 12, w: "admit", p: "v", d: "（尤指不情願地）承認；供認；招認", s: "He admitted his mistake after thinking about it carefully."},
+{id: 13, w: "advanced", p: "adj", d: "先進的", s: "This is the most advanced type of engine available."},
+{id: 14, w: "advise", p: "v", d: "勸告；忠告；向…提供意見，給…出主意", s: "I think I'd advise him to leave the company."},
+{id: 15, w: "afford", p: "v", d: "買得起；有時間做，能做", s: "He cannot afford a new car on his salary."},
+{id: 16, w: "age", p: "v", d: "衰老，使…顯得蒼老", s: "She's aged since the last time we met."},
+{id: 17, w: "aged", p: "adj", d: "…歲", s: "They've got one daughter, Isabel, aged three."},
+{id: 18, w: "agent", p: "n", d: "代理人；代理商", s: "Please contact our agent in Spain for further information."},
+{id: 19, w: "agreement", p: "n", d: "意見一致；同意；應允", s: "The whole family was in agreement with her plan."},
+{id: 20, w: "ahead", p: "adv", d: "在前面，在前方", s: "The road ahead is very busy."},
+{id: 21, w: "aim", p: "v", d: "打算，計劃；想要", s: "I aim to be a millionaire by the time I'm 35."},
+{id: 22, w: "aim", p: "n", d: "目標，目的；意圖", s: "My main aim is to be a good father."},
+{id: 23, w: "alarm", p: "n", d: "警報", s: "You should sound the alarm if there is trouble."},
+{id: 24, w: "album", p: "n", d: "（CD或唱片上的）音樂專輯", s: "Have you heard their new album?"},
+{id: 25, w: "alcohol", p: "n", d: "酒；酒精，乙醇", s: "Most wines contain around twelve percent alcohol."},
+{id: 26, w: "alcoholic", p: "adj", d: "含酒精的", s: "They do not serve alcoholic drinks at this restaurant."},
+{id: 27, w: "alternative", p: "adj", d: "（計劃或方法）可替代的；可供選擇的", s: "We need to find an alternative strategy very soon."},
+{id: 28, w: "amazed", p: "adj", d: "十分驚奇的，驚愕的", s: "She was amazed at how calm she felt after the accident."},
+{id: 29, w: "ambition", p: "n", d: "抱負；志向；雄心；野心", s: "His ambition is ultimately to run his own business."},
+{id: 30, w: "ambitious", p: "adj", d: "有抱負的；志向遠大的；雄心勃勃的", s: "The ambitious young lawyer wants to become a judge."},
+{id: 31, w: "analyse", p: "v", d: "分析", s: "Researchers analysed the purchases of 6,300 households."},
+{id: 32, w: "analysis", p: "n", d: "分析", s: "Chemical analysis revealed a high content of copper."},
+{id: 33, w: "announce", p: "v", d: "（尤指公開地）宣佈，宣告，通告", s: "They announced the death of their mother in the local paper."},
+{id: 34, w: "announcement", p: "n", d: "公告，佈告；通告；聲明", s: "The president made an unexpected announcement this morning."},
+{id: 35, w: "annoy", p: "v", d: "煩擾；打攪；使煩惱", s: "Tina really annoyed me in the meeting this morning."},
+{id: 36, w: "annoyed", p: "adj", d: "生氣的；煩惱的", s: "I was so annoyed with him for turning up late."},
+{id: 37, w: "annoying", p: "adj", d: "討厭的；惱人的", s: "It's really annoying when a train is late and there's no explanation."},
+{id: 38, w: "apart", p: "adv", d: "（指空間或時間）相隔，相距", s: "Stand with your feet wide apart."},
+{id: 39, w: "apologize", p: "v", d: "道歉；認錯；謝罪", s: "I must apologize to Isobel for my lateness."},
+{id: 40, w: "application", p: "n", d: "（通常指書面的）申請，請求", s: "I sent a letter of application for the job."},
+{id: 41, w: "appointment", p: "n", d: "約會；預約；約定", s: "I'd like to make an appointment with Dr Evans, please."},
+{id: 42, w: "appreciate", p: "v", d: "欣賞；賞識；重視", s: "There's no point buying him expensive wines - he doesn't appreciate them."},
+{id: 43, w: "approximately", p: "adv", d: "大約，大概，左右", s: "The job will take approximately three weeks, and cost approximately £1,000."},
+{id: 44, w: "arrest", p: "v", d: "逮捕；拘捕", s: "He was arrested when customs officers found drugs in his bag."},
+{id: 45, w: "arrest", p: "n", d: "逮捕；拘捕", s: "Two arrests were made, but the men were later released without charge."},
+{id: 46, w: "arrival", p: "n", d: "到達；到來；來臨", s: "Hundreds gathered to await the boxer's arrival at the airport."},
+{id: 47, w: "assignment", p: "n", d: "（尤指學業或工作方面的）任務，功課", s: "The photographer finished his assignment early in the morning."},
+{id: 48, w: "assist", p: "v", d: "幫助；協助；援助", s: "The army arrived to assist in the search."},
+{id: 49, w: "atmosphere", p: "n", d: "（包圍地球的）大氣，大氣層，大氣圈", s: "These factories are releasing toxic gases into the atmosphere."},
+{id: 50, w: "attach", p: "v", d: "繫，綁；連接；使附著；附上；固定", s: "I attached a photo to my application form."},
+{id: 51, w: "attitude", p: "n", d: "心態；看法；態度", s: "It's often very difficult to change people's attitudes."},
+{id: 52, w: "attract", p: "v", d: "（尤因具有積極、值得讚賞的品質而）吸引；招引；引起", s: "These flowers are brightly coloured in order to attract butterflies."},
+{id: 53, w: "attraction", p: "n", d: "吸引（力）；有吸引力的事物", s: "Life in Los Angeles has many attractions, like good restaurants."},
+{id: 54, w: "authority", p: "n", d: "威信；權力；管轄權", s: "The United Nations used its authority to restore peace."},
+{id: 55, w: "average", p: "v", d: "平均數是，平均為", s: "Enquiries to our office average 1,000 calls a month."},
+{id: 56, w: "award", p: "v", d: "給予，授予；判給，裁定", s: "Carlos was awarded first prize in the essay competition."},
+{id: 57, w: "aware", p: "adj", d: "意識到的；明白的；知道的", s: "I wasn't even aware that he was ill."},
+{id: 58, w: "backwards", p: "adv", d: "向後地", s: "I walked backwards towards the door."},
+{id: 59, w: "bake", p: "v", d: "烘，烤", s: "I made the icing while the cake was baking."},
+{id: 60, w: "balance", p: "n", d: "平衡", s: "The toddler wobbled and lost his balance."},
+{id: 61, w: "balance", p: "v", d: "（使）平衡", s: "The flamingos balanced gracefully on one leg."},
+{id: 62, w: "ban", p: "v", d: "（尤指官方）禁止", s: "The film was banned in several countries."},
+{id: 63, w: "ban", p: "n", d: "（尤指官方）禁止，取締", s: "There should be a ban on talking loudly in cinemas."},
+{id: 64, w: "bank", p: "n", d: "堤，岸", s: "The boat was sinking fast near the opposite bank."},
+{id: 65, w: "base", p: "n", d: "基底，底座；底層，底部", s: "This crystal glass has a very heavy base."},
+{id: 66, w: "base", p: "v", d: "以某處（城鎮或地區等）作為生活、工作、經商的主要地點；將某地設為總部", s: "Can you tell me where your firm is based?"},
+{id: 67, w: "basic", p: "adj", d: "基礎的，基本的；根本的", s: "I really need to get some basic financial advice."},
+{id: 68, w: "basis", p: "n", d: "基礎，根據", s: "This document will form the basis for our discussion."},
+{id: 69, w: "battery", p: "n", d: "電池，電芯", s: "You need a rechargeable battery for this camera."},
+{id: 70, w: "battle", p: "n", d: "戰鬥；戰役；戰爭", s: "Many soldiers died during the Battle of the Somme."},
+{id: 71, w: "beauty", p: "n", d: "美，美麗；美人；美景", s: "This is an area of outstanding natural beauty."},
+{id: 72, w: "bee", p: "n", d: "蜜蜂", s: "A swarm of bees flew into the garden."},
+{id: 73, w: "belief", p: "n", d: "相信；信心；信任", s: "His belief in God gave him hope during difficult times."},
+{id: 74, w: "bell", p: "n", d: "（電）門鈴", s: "I stood at the front door and rang the bell several times."},
+{id: 75, w: "bend", p: "v", d: "（使）彎曲", s: "The road bends to the left after the traffic lights."},
+{id: 76, w: "bend", p: "n", d: "彎曲處", s: "There is a sharp bend in the water pipe."},
+{id: 77, w: "benefit", p: "v", d: "得益，受惠；使受益；對…有幫助", s: "I feel that I have benefited greatly from her wisdom."},
+{id: 78, w: "better", p: "n", d: "更好的事物；較好者", s: "I have not seen a better result this year."},
+{id: 79, w: "bite", p: "v", d: "（用牙）咬", s: "He was hungry so he bit into the apple."},
+{id: 80, w: "bite", p: "n", d: "咬；叮；蟄", s: "He took a bite out of the apple."},
+{id: 81, w: "block", p: "n", d: "街區；街段", s: "The museum is just six blocks away."},
+{id: 82, w: "block", p: "v", d: "堵塞；阻擋；阻礙", s: "A fallen tree is blocking the road."},
+{id: 83, w: "board", p: "v", d: "（使）上（船、火車或飛機）", s: "At London airport she boarded a plane to Australia."},
+{id: 84, w: "bomb", p: "n", d: "炸彈；爆炸裝置", s: "A large bomb exploded today, injuring three people."},
+{id: 85, w: "bomb", p: "v", d: "轟炸，投彈於", s: "Planes bombed the city every night."},
+{id: 86, w: "border", p: "n", d: "國境；邊界；邊境", s: "Were you stopped at the border?"},
+{id: 87, w: "bother", p: "v", d: "努力，盡力；費心", s: "He hasn't even bothered to write."},
+{id: 88, w: "branch", p: "n", d: "一部分；支族，旁系", s: "Immunology is a branch of biological science."},
+{id: 89, w: "brand", p: "n", d: "商標，牌子", s: "This isn't my usual brand of deodorant."},
+{id: 90, w: "brand", p: "v", d: "加汙名於；譴責", s: "Because of one minor offence he was branded a common criminal."},
+{id: 91, w: "brave", p: "adj", d: "勇敢的，無畏的", s: "The brave soldier saved his friend in the war."},
+{id: 92, w: "breath", p: "n", d: "呼吸的空氣；氣息", s: "I noticed that her breath smelled strongly of garlic."},
+{id: 93, w: "breathe", p: "v", d: "呼吸", s: "It's so airless in here - I can hardly breathe."},
+{id: 94, w: "breathing", p: "n", d: "呼吸", s: "She lay awake listening to her sister's steady breathing."},
+{id: 95, w: "bride", p: "n", d: "新娘；即將（或剛）結婚的女子", s: "He returned from New York with his lovely new bride."},
+{id: 96, w: "bubble", p: "n", d: "泡；氣泡；泡沫", s: "As water begins to boil, bubbles rise to the surface."},
+{id: 97, w: "bury", p: "v", d: "埋；埋葬，安葬", s: "His father is buried in the cemetery on the hill."},
+{id: 98, w: "by", p: "adv", d: "經過", s: "The policewoman walked by without saying a word."},
+{id: 99, w: "calm", p: "adj", d: "冷靜的，鎮靜的", s: "He has a very calm manner."},
+{id: 100, w: "calm", p: "v", d: "使平靜；使安靜；使鎮靜", s: "He tried to calm the screaming baby by rocking it."},
+{id: 101, w: "calm", p: "n", d: "寧靜（的時期），安詳（的時期）", s: "It was the calm of the countryside that he loved so much."},
+{id: 102, w: "campaign", p: "n", d: "（尤指政治、商業或軍事的）專門活動，運動", s: "The protests were part of their campaign against the building development."},
+{id: 103, w: "campaign", p: "v", d: "從事活動；開展運動；發起運動", s: "They've been campaigning for years to get him out of prison."},
+{id: 104, w: "campus", p: "n", d: "（大學）校園，校區", s: "There's accommodation for about five hundred students on campus."},
+{id: 105, w: "candidate", p: "n", d: "申請人；候選人", s: "There are three candidates standing in the election."},
+{id: 106, w: "cap", p: "n", d: "（有帽舌的）便帽，制服帽", s: "He likes to wear a cap when it is sunny."},
+{id: 107, w: "captain", p: "n", d: "（運動隊）隊長", s: "It is unusual to have a goalkeeper as the captain."},
+{id: 108, w: "careless", p: "adj", d: "不小心的；粗心的，馬虎的", s: "My son's teacher says that his work is often rather careless."},
+{id: 109, w: "category", p: "n", d: "種類，類別，範疇", s: "There are three categories of accommodation - standard, executive, and deluxe."},
+{id: 110, w: "ceiling", p: "n", d: "天花板，頂棚", s: "I got a crick in my neck from painting the ceiling."},
+{id: 111, w: "celebration", p: "n", d: "慶祝活動；慶祝會", s: "There were lively New Year celebrations all over town."},
+{id: 112, w: "central", p: "adj", d: "中心的，中央的；中部的；靠近中心的；核心的", s: "Our office is located in central London near the river."},
+{id: 113, w: "centre", p: "v", d: "將…放在中央，使置中", s: "You should centre all the headings in this document."},
+{id: 114, w: "ceremony", p: "n", d: "典禮；儀式", s: "We attended a beautiful wedding ceremony at the old church."},
+{id: 115, w: "chain", p: "n", d: "一連串，一系列（的事物）", s: "She has built up a chain of 180 bookshops across the country."},
+{id: 116, w: "challenge", p: "n", d: "挑戰；難題；考驗", s: "Finding a solution is one of the greatest challenges faced today."},
+{id: 117, w: "champion", p: "n", d: "（人或動物）冠軍，獲勝者", s: "He trained hard to become an Olympic champion in swimming."},
+{id: 118, w: "channel", p: "n", d: "電視臺；電視頻道", s: "We can watch the news on a satellite channel tonight."},
+{id: 119, w: "chapter", p: "n", d: "章，回，篇", s: "Read Chapter 10 before class tomorrow."},
+{id: 120, w: "charge", p: "n", d: "（尤指某一活動或服務的）收費，費用，價格", s: "Is there a charge for children or do they go free?"},
+{id: 121, w: "charge", p: "v", d: "（尤指對某一服務或活動）收費，要價，開價", s: "How much do you charge for a haircut and blow-dry?"},
+{id: 122, w: "cheap", p: "adv", d: "便宜地，經濟實惠地", s: "I got some new shoes cheap in the summer sale."},
+{id: 123, w: "cheat", p: "v", d: "欺騙，行騙；作弊", s: "Anyone caught cheating will be immediately disqualified from the exam."},
+{id: 124, w: "cheat", p: "n", d: "騙子；作弊者", s: "The player was angry when someone called him a cheat."},
+{id: 125, w: "cheerful", p: "adj", d: "高興的，快樂的；興高采烈的", s: "He is usually fairly cheerful despite having a difficult job."},
+{id: 126, w: "chemical", p: "adj", d: "化學的；化學製品的", s: "The chemical industry produces such things as petrochemicals, drugs, and rubber."},
+{id: 127, w: "chemical", p: "n", d: "化學品；化學製品", s: "The government pledged to reduce chemicals used in food production."},
+{id: 128, w: "chest", p: "n", d: "胸膛，胸部；胸腔", s: "He was shot in the chest at point blank range."},
+{id: 129, w: "childhood", p: "n", d: "童年；孩童時期，孩提時代", s: "She had an unhappy childhood because her parents were poor."},
+{id: 130, w: "claim", p: "v", d: "聲稱；宣稱；斷言；主張", s: "The company claims it is not responsible for the pollution."},
+{id: 131, w: "claim", p: "n", d: "聲明；說法；斷言", s: "He made a claim that the police assaulted him yesterday."},
+{id: 132, w: "clause", p: "n", d: "（法律文件的）條款", s: "They have added a new clause to the employment contract."},
+{id: 133, w: "clear", p: "v", d: "移走；清除；清理；清掃；疏通", s: "It took several hours to clear the road after the accident."},
+{id: 134, w: "click", p: "v", d: "按一下（滑鼠）", s: "You should click twice on the icon to open it."},
+{id: 135, w: "click", p: "n", d: "短而尖的聲音", s: "The soldier gave a click of his heels as he saluted."},
+{id: 136, w: "client", p: "n", d: "客戶；顧客，主顧；委託人", s: "Mr Black has been a client of this firm for many years."},
+{id: 137, w: "climb", p: "n", d: "攀登；爬升", s: "We were very tired after our climb."},
+{id: 138, w: "close", p: "adv", d: "（空間或時間上）接近的（地），靠近的（地）", s: "Don't get too close to that dog, Rosie."},
+{id: 139, w: "cloth", p: "n", d: "布，布料", s: "She bought a piece of cloth to make a dress."},
+{id: 140, w: "clue", p: "n", d: "線索；跡象；提示", s: "Police are still looking for clues about the missing girl."},
+{id: 141, w: "coach", p: "v", d: "訓練；培訓；指導；（尤指私人）輔導", s: "She coaches students in French, usually for exams."},
+{id: 142, w: "coal", p: "n", d: "煤", s: "How much coal was mined here?"},
+{id: 143, w: "coin", p: "n", d: "硬幣；金屬貨幣", s: "I found a shiny gold coin on the street yesterday."},
+{id: 144, w: "collection", p: "n", d: "收藏品；收集物", s: "He has a private art collection worth millions of dollars."},
+{id: 145, w: "coloured", p: "adj", d: "有顏色的；彩色的", s: "The children used coloured pencils to draw a nice picture."},
+{id: 146, w: "combine", p: "v", d: "（使）結合；（使）聯合；（使）合併；（使）綜合", s: "None of us has much money so let's combine what we've got."},
+{id: 147, w: "comment", p: "v", d: "評論；議論；發表意見", s: "My mum always comments on what I'm wearing."},
+{id: 148, w: "commercial", p: "adj", d: "商業的；商務的；貿易的", s: "The new movie was a huge commercial success last year."},
+{id: 149, w: "commercial", p: "n", d: "（電視或廣播裡的）商業廣告", s: "I went to the kitchen during the TV commercial break."},
+{id: 151, w: "communication", p: "n", d: "交流；溝通；交際；傳達；傳播；通訊", s: "Television is an increasingly important means of communication."},
+{id: 152, w: "comparison", p: "n", d: "比較，對照，對比", s: "They made a comparison of different countries' eating habits."},
+{id: 153, w: "competitor", p: "n", d: "競爭者；參賽者", s: "Their prices are better than any of their competitors."},
+{id: 154, w: "competitive", p: "adj", d: "競爭的；競賽的", s: "He enjoys playing competitive sports like football and basketball."},
+{id: 155, w: "complaint", p: "n", d: "抱怨，牢騷；投訴；不滿", s: "We've received a complaint from one of our listeners about offensive language."},
+{id: 156, w: "complex", p: "adj", d: "由許多相關的不同部分組成的；構造複雜的", s: "The scientist studied the structure of a complex molecule."},
+{id: 157, w: "concentrate", p: "v", d: "專注，專心；全神貫注；集中（注意力）", s: "Come on, concentrate! We don't have all day to do this."},
+{id: 158, w: "conclude", p: "v", d: "（以…）結束（講話、會議、文章等）", s: "She concluded the speech by reminding us of our responsibility."},
+{id: 159, w: "conclusion", p: "n", d: "結局；結尾；結果", s: "Do not introduce new ideas in the conclusion of your essay."},
+{id: 160, w: "confident", p: "adj", d: "自信的；有信心的；確信的；有把握的；信任的", s: "Be a bit more confident in yourself!"},
+{id: 161, w: "confirm", p: "v", d: "確認，確定（安排或會議）", s: "Six people have confirmed that they will be attending the meeting."},
+{id: 162, w: "confuse", p: "v", d: "使困惑，使糊塗；使混亂", s: "You're confusing him! Tell him slowly and one thing at a time."},
+{id: 163, w: "confused", p: "adj", d: "迷惑的；糊塗的", s: "Grandpa gets pretty confused and doesn't know what day it is."},
+{id: 164, w: "connection", p: "n", d: "（與某人或某事的）聯繫", s: "The connection between smoking and heart disease is well known."},
+{id: 165, w: "consequence", p: "n", d: "（常指不好或不利的）結果，後果", s: "Not making a will can have serious consequences for your family."},
+{id: 166, w: "consist", p: "v", d: "在於，存在於", s: "The beauty of air travel consists in its speed and ease."},
+{id: 167, w: "consume", p: "v", d: "（尤指大量地）消耗，消費，花費", s: "Our population consumes twenty-five percent of the world's oil."},
+{id: 168, w: "consumer", p: "n", d: "消費者；顧客；用戶", s: "The new rates will affect all consumers, including businesses."},
+{id: 169, w: "contact", p: "n", d: "（尤指經常透過交談、書信的）聯繫，聯絡，交往", s: "Have you been in contact with Andrew recently? \"Only by phone.\""},
+{id: 170, w: "contact", p: "v", d: "（透過電話或寫電子郵件等）聯繫，聯絡", s: "I tried to contact him at his office, but he wasn't in."},
+{id: 171, w: "container", p: "n", d: "（尤指用於運輸或儲存的）容器", s: "Store the leftover food in an airtight container overnight."},
+{id: 172, w: "content", p: "n", d: "所含之物；容納的東西；內容", s: "He tipped the contents of the bag onto the table."},
+{id: 173, w: "continuous", p: "adj", d: "不斷的，連續的，持續的", s: "The patient suffered from continuous pain in his lower back."},
+{id: 174, w: "contrast", p: "n", d: "差別，差異；對照，對比", s: "I like the contrast of the white trousers with the black jacket."},
+{id: 175, w: "contrast", p: "v", d: "對照，對比", s: "You should contrast her early writing with her later work."},
+{id: 176, w: "convenient", p: "adj", d: "方便的；便利的；省事的", s: "Our local shop has very convenient opening hours."},
+{id: 177, w: "convince", p: "v", d: "說服；使相信；使信服", s: "He managed to convince the jury of his innocence."},
+{id: 178, w: "cool", p: "v", d: "涼的，冷的", s: "I drank a glass of cool water after my run."},
+{id: 179, w: "costume", p: "n", d: "（某國或某一歷史時期或適合某種活動的）服裝", s: "Singers performing Mozart's operas often wear historical costume."},
+{id: 180, w: "cottage", p: "n", d: "（通常指鄉村中的）小屋，村舍", s: "They live in an idyllic country cottage with roses."},
+{id: 181, w: "cotton", p: "n", d: "棉，棉花", s: "The workers loaded a heavy bale of cotton onto the truck."},
+{id: 182, w: "count", p: "n", d: "計數，計算；總數", s: "Having done a quick count, I find I've planted 25 different ferns."},
+{id: 183, w: "countryside", p: "n", d: "農村，鄉下；郊外", s: "The countryside around there is beautiful."},
+{id: 184, w: "court", p: "n", d: "法院；法庭；全體出庭人員；（尤指）全體審判人員", s: "Protestors gathered outside the court to await the verdict."},
+{id: 185, w: "cover", p: "n", d: "蓋子；罩子；遮蓋物；覆蓋物", s: "I keep my computer printer under a protective plastic cover."},
+{id: 186, w: "covered", p: "adj", d: "蓋上；覆蓋；遮蓋；遮蔽", s: "His face was covered in blood."},
+{id: 187, w: "cream", p: "adj", d: "奶油色的，淡黃色的，米黃色的", s: "He wore a cream shirt to the summer party."},
+{id: 188, w: "criminal", p: "adj", d: "犯罪的；涉及犯罪的", s: "The police are investigating criminal activity in the area."},
+{id: 189, w: "cruel", p: "adj", d: "殘忍的；殘酷的；刻毒傷人的", s: "Don't tease him about his weight - it's cruel."},
+{id: 190, w: "cultural", p: "adj", d: "與文化有關的，文化的", s: "The US is often accused of cultural imperialism."},
+{id: 191, w: "currency", p: "n", d: "貨幣，通貨", s: "You should exchange your money for foreign currency at the bank."},
+{id: 192, w: "current", p: "adj", d: "現時的，當前的；現行的", s: "Have you seen the current issue of Vogue magazine?"},
+{id: 193, w: "currently", p: "adv", d: "現時，當前；現行", s: "The hourly charge is currently £35."},
+{id: 194, w: "curtain", p: "n", d: "（尤指布質的）簾，窗簾，門簾", s: "Heavy curtains blocked out the sunlight."},
+{id: 195, w: "custom", p: "n", d: "風俗，習俗；傳統", s: "It is a local custom to shake hands when meeting."},
+{id: 196, w: "cut", p: "n", d: "傷口；切口；割痕", s: "He had a deep cut on his finger from the knife."},
+{id: 197, w: "daily", p: "adv", d: "每天地，天天地", s: "You must take the tablets twice daily with water."},
+{id: 198, w: "damage", p: "n", d: "損害，危害；損壞；傷害", s: "Strong winds had caused serious damage to the roof."},
+{id: 200, w: "deal", p: "n", d: "（尤指商業上的）協議，交易", s: "We signed a business deal with a new partner yesterday."},
+{id: 201, w: "decade", p: "n", d: "十年；年代", s: "Air traffic has increased 30% in the last decade."},
+{id: 202, w: "decorate", p: "v", d: "裝飾，裝扮，打扮", s: "They decorated the wedding car with ribbons and flowers."},
+{id: 203, w: "deep", p: "adv", d: "深地，向下延伸地", s: "The submarine sailed deep under the ice cap."},
+{id: 204, w: "define", p: "v", d: "給（尤指單詞）下定義；說明，解釋", s: "The dictionary defines reality as the state of things as they are."},
+{id: 205, w: "definite", p: "adj", d: "明確的", s: "Can you give me a definite answer by tomorrow?"},
+{id: 206, w: "definition", p: "n", d: "定義", s: "You can find the definition of the word in a dictionary."},
+{id: 207, w: "deliver", p: "v", d: "運送，遞送，投遞", s: "Mail is delivered to our office twice a day."},
+{id: 208, w: "departure", p: "n", d: "（人、交通工具等）離開；啟程，出發", s: "There are several departures for Paris every day."},
+{id: 209, w: "despite", p: "prep", d: "不管；儘管；無論", s: "I still enjoyed the week despite the weather."},
+{id: 210, w: "destination", p: "n", d: "目的地；終點", s: "We arrived at our destination tired and hungry."},
+{id: 211, w: "determine", p: "v", d: "確定，決定；影響", s: "The staff numbers are determined by our available budget."},
+{id: 212, w: "determined", p: "adj", d: "下定決心的，堅決的，決意的", s: "I'm determined to get this piece of work done today."},
+{id: 213, w: "development", p: "n", d: "成長，發育；發展", s: "A balanced diet is essential for healthy growth and development."},
+{id: 214, w: "diagram", p: "n", d: "圖，圖解，示意圖", s: "The teacher drew a diagram showing how blood flows."},
+{id: 215, w: "diamond", p: "n", d: "鑽石，金剛石", s: "The tiara was set with diamonds and rubies."},
+{id: 216, w: "difficulty", p: "n", d: "困難，艱辛", s: "We finished the job, but only with great difficulty."},
+{id: 217, w: "direct", p: "v", d: "管理，領導，指揮", s: "She directs a large charity that helps homeless people."},
+{id: 218, w: "direct", p: "adv", d: "直線地，直達地", s: "Does this bus go direct to the airport?"},
+{id: 219, w: "directly", p: "adv", d: "直接地", s: "Our hotel room was directly above a construction site."},
+{id: 220, w: "dirt", p: "n", d: "塵土，泥土，灰塵", s: "His coat was covered with dirt."},
+{id: 221, w: "disadvantage", p: "n", d: "劣勢，不利因素", s: "One disadvantage of living here is the lack of parks."},
+{id: 222, w: "disappointed", p: "adj", d: "失望的，沮喪的", s: "We were deeply disappointed about the final match result."},
+{id: 223, w: "disappointing", p: "adj", d: "令人失望的，讓人沮喪的", s: "It was a disappointing result for the entire team."},
+{id: 224, w: "discount", p: "n", d: "減價，打折", s: "They usually give you a discount if you buy multiple copies."},
+{id: 225, w: "dislike", p: "v", d: "不喜歡，討厭", s: "Why do you dislike her so much?"},
+{id: 226, w: "dislike", p: "n", d: "不喜歡，厭惡", s: "She has a dislike of cold weather."},
+{id: 227, w: "divide", p: "v", d: "（使）分開；（使）分組", s: "The students should divide into small discussion groups now."},
+{id: 228, w: "documentary", p: "n", d: "（電影或電視）紀錄片；紀實性廣播節目", s: "The documentary took a fresh look at the life of Darwin."},
+{id: 229, w: "donate", p: "v", d: "捐贈，捐助，捐獻", s: "An anonymous businesswoman donated one million dollars to the charity."},
+{id: 230, w: "double", p: "adv", d: "兩倍的；成雙的；雙份的", s: "I ordered a double espresso to help me stay awake."},
+{id: 231, w: "doubt", p: "n", d: "（尤指對好壞、真實性的）懷疑，疑慮，疑問", s: "I'm having doubts about his ability to do the job."},
+{id: 232, w: "doubt", p: "v", d: "懷疑；不確定，不肯定", s: "I doubt whether I can finish the work on time."},
+{id: 233, w: "dressed", p: "adj", d: "穿著衣服的", s: "I usually get dressed before I eat breakfast."},
+{id: 234, w: "drop", p: "n", d: "滴", s: "I thought I felt a drop of rain."},
+{id: 235, w: "drum", p: "n", d: "鼓", s: "He plays the bass drum in the marching band."},
+{id: 236, w: "drunk", p: "adj", d: "醉的，喝醉的，醉酒的", s: "I got completely drunk at my sister's wedding."},
+{id: 237, w: "due", p: "adj", d: "預計的，預期的", s: "What time is the next bus due?"},
+{id: 238, w: "dust", p: "n", d: "灰塵；塵土；沙土", s: "The furniture was covered in dust and cobwebs."},
+{id: 239, w: "duty", p: "n", d: "責任；義務", s: "The agency's duty is to act in the child's best interests."},
+{id: 240, w: "earthquake", p: "n", d: "地震", s: "In 1906 an earthquake destroyed much of San Francisco."},
+{id: 241, w: "eastern", p: "adj", d: "（某個地區的）東部的；來自東部的", s: "The eastern part of the country is very mountainous."},
+{id: 242, w: "economic", p: "adj", d: "經濟的；經濟上的", s: "The country has been in a poor economic state recently."},
+{id: 243, w: "economy", p: "n", d: "經濟；經濟制度", s: "The global economy has been growing slowly this year."},
+{id: 244, w: "edge", p: "n", d: "邊，邊緣", s: "He put pink icing around the edge of the cake."},
+{id: 245, w: "editor", p: "n", d: "（書的）編輯；（電影電視的）剪輯員；（報刊的）主編", s: "She's a senior editor in the reference department of a publishing company."},
+{id: 246, w: "educate", p: "v", d: "（尤指透過正規學校體系）教育，培養", s: "How much does it cost to educate a child privately?"},
+{id: 247, w: "educated", p: "adj", d: "受過教育的；有知識的", s: "She was probably the most highly educated prime minister of this century."},
+{id: 248, w: "educational", p: "adj", d: "教育的；與教育有關的", s: "Reducing the size of classes may improve educational standards."},
+{id: 249, w: "effective", p: "adj", d: "能産生預期結果的；有效的", s: "It's an extremely effective cure for a headache."},
+{id: 250, w: "effectively", p: "adv", d: "有效地", s: "The tablets work more effectively with a hot drink."},
+{id: 251, w: "effort", p: "n", d: "氣力；精力；努力", s: "We must make an effort to keep the office tidy."},
+{id: 252, w: "election", p: "n", d: "選舉", s: "The government is expected to call an election very soon."},
+{id: 253, w: "element", p: "n", d: "部分；部件；要素", s: "List the elements that make up a perfect dinner party."},
+{id: 254, w: "embarrassed", p: "adj", d: "窘迫的，尷尬的；害羞的", s: "She felt embarrassed about undressing in front of the doctor."},
+{id: 255, w: "embarrassing", p: "adj", d: "使人感到窘迫的，令人尷尬的，使人難堪的", s: "It was such an embarrassing situation for everyone involved."},
+{id: 256, w: "emergency", p: "n", d: "緊急情況；不測事件；突發事件", s: "How would disabled people escape in an emergency?"},
+{id: 257, w: "emotion", p: "n", d: "感情，情感；情緒；激情", s: "He finds it very hard to express his emotions."},
+{id: 258, w: "employment", p: "n", d: "受僱；就業", s: "Employment levels are unlikely to rise significantly this year."},
+{id: 259, w: "empty", p: "v", d: "倒空，騰空；傾倒", s: "I emptied the closet and packed my belongings into a case."},
+{id: 260, w: "encourage", p: "v", d: "刺激，激勵；促進；助長", s: "We were encouraged to learn foreign languages at school."},
+{id: 261, w: "enemy", p: "n", d: "敵人；仇敵；反對者", s: "He's made a few enemies in this company."},
+{id: 262, w: "engaged", p: "adj", d: "已訂婚的", s: "Debbie and Christa have just got engaged."},
+{id: 263, w: "engineering", p: "n", d: "工程設計；工程學", s: "He decided to study mechanical engineering at the university."},
+{id: 264, w: "entertain", p: "v", d: "使有興趣；使快樂", s: "We hired a magician to entertain the children."},
+{id: 265, w: "entertainment", p: "n", d: "娛樂，娛樂節目；娛樂表演", s: "There is not much entertainment in this small town."},
+{id: 266, w: "entrance", p: "n", d: "入口；大門（口）；通道", s: "There are two entrances at the front and back."},
+{id: 267, w: "entry", p: "n", d: "進入；加入，參加", s: "A flock of sheep blocked our entry to the farm."},
+{id: 268, w: "environmental", p: "adj", d: "自然環境的；有關環境的", s: "People are becoming far more aware of environmental issues."},
+{id: 269, w: "episode", p: "n", d: "事件；（相關的）一連串事件；一段經歷", s: "The latest episode in the scandal has shocked many people."},
+{id: 270, w: "equal", p: "adj", d: "（數量、大小）相同的，相等的", s: "One litre is equal to 1.76 imperial pints."},
+{id: 271, w: "equal", p: "v", d: "與某物（質量或數量）相等", s: "In the imperial system, sixteen ounces equals one pound."},
+{id: 272, w: "equally", p: "adv", d: "平等地；相同地", s: "In an ideal world, would everyone get treated equally?"},
+{id: 273, w: "escape", p: "v", d: "逃走，逃脫，逃離；逃避，避開", s: "The police reported that two prisoners have escaped from jail."},
+{id: 274, w: "escape", p: "n", d: "逃脫，逃離", s: "He made his escape on the back of a motorcycle."},
+{id: 275, w: "essential", p: "adj", d: "必要的，必不可少的", s: "Government support will be essential if the project is to succeed."},
+{id: 276, w: "eventually", p: "adv", d: "最終，終於", s: "It was a shock when she eventually died after her illness."},
+{id: 277, w: "examine", p: "v", d: "（仔細地）檢查，審查，調查", s: "Scientists are examining the wreckage for clues about the explosion."},
+{id: 278, w: "except", p: "conj", d: "（用於說明為什麼某事不可能或者不真實）只是…，不過…", s: "I want to go, except that I'm tired."},
+{id: 279, w: "exchange", p: "n", d: "交換；互換；交流", s: "The meeting involved a useful exchange of ideas and information."},
+{id: 280, w: "exchange", p: "v", d: "交換；互換；交流", s: "It's traditional for the two teams to exchange shirts after the game."},
+{id: 281, w: "excitement", p: "n", d: "激動，興奮；令人興奮的事情", s: "Robin's heart was pounding with excitement."},
+{id: 282, w: "exhibition", p: "n", d: "展覽（會）；表現，顯示", s: "The photographs will be on exhibition until the end of the month."},
+{id: 283, w: "expand", p: "v", d: "（使）（尺寸、數量或重要性）擴大，增加；（使）膨脹", s: "The air in the balloon expands when heated."},
+{id: 284, w: "expected", p: "adj", d: "預產的", s: "They do not yet know the sex of their expected child."},
+{id: 285, w: "expedition", p: "n", d: "遠征；探險，考察", s: "We're going on a shopping expedition on Saturday."},
+{id: 286, w: "experience", p: "v", d: "經歷；體會到，感受到", s: "We experienced a lot of difficulty in selling our house."},
+{id: 287, w: "experienced", p: "adj", d: "經驗豐富的；有閱歷的；有見識的", s: "She is an experienced teacher who knows how to handle children."},
+{id: 288, w: "experiment", p: "v", d: "進行實驗；做試驗；試用", s: "Things would never change if people weren't prepared to experiment."},
+{id: 289, w: "explode", p: "v", d: "（使）爆炸，（使）爆破", s: "A bomb exploded at the busy railway station this morning."},
+{id: 290, w: "explore", p: "v", d: "探測；勘查；探索；研究", s: "Humans have always wanted to explore space and other planets."},
+{id: 291, w: "explosion", p: "n", d: "爆炸；爆破；爆裂", s: "The fire was thought to have been caused by a gas explosion."},
+{id: 292, w: "export", p: "n", d: "出口；出口商品；出口業務", s: "Coffee is one of Brazil's main exports."},
+{id: 293, w: "export", p: "v", d: "出口；輸出", s: "French cheeses are exported to many different countries."},
+{id: 294, w: "extra", p: "n", d: "另外付費就可額外得到的東西", s: "A sunroof is an optional extra on this model of the car."},
+{id: 295, w: "extra", p: "adv", d: "額外地；另外；外加", s: "They pay her extra to work nights."},
+{id: 296, w: "face", p: "v", d: "面對，面臨，必須對付（難題）", s: "This is one of the many problems faced by working mothers."},
+{id: 297, w: "fairly", p: "adv", d: "相當地；一定程度地", s: "She is actually fairly tall compared to her younger sister."},
+{id: 298, w: "familiar", p: "adj", d: "熟悉的；常見的；常聽說", s: "There were one or two familiar faces in the crowd."},
+{id: 299, w: "fancy", p: "v", d: "想要；想做", s: "Do you fancy a drink this evening?"},
+{id: 300, w: "fancy", p: "adj", d: "裝飾的；花哨的；繁複的", s: "I wanted a simple black dress, nothing fancy."},
+{id: 301, w: "far", p: "adj", d: "遠的；遙遠的；遠端的", s: "The station isn't far - we could easily walk there."},
+{id: 302, w: "fascinating", p: "adj", d: "極有趣的；吸引人的", s: "The book offers a fascinating glimpse of the lives of the rich."},
+{id: 303, w: "fashionable", p: "adj", d: "流行的；時髦的；時尚的", s: "We went to a fashionable nightclub in the city centre."},
+{id: 304, w: "fasten", p: "v", d: "扣緊；繫牢；紮好；關緊", s: "Make sure your seat belt is securely fastened."},
+{id: 305, w: "favour", p: "n", d: "支持；贊同", s: "These plans are unlikely to find favour unless the cost is reduced."},
+{id: 306, w: "fear", p: "v", d: "害怕，畏懼，懼怕", s: "Most older employees fear unemployment."},
+{id: 307, w: "feature", p: "v", d: "以…為特色；給…以顯著的地位", s: "The movie features James Dean as a disaffected teenager."},
+{id: 308, w: "fence", p: "n", d: "柵欄；籬笆；圍欄", s: "The house was surrounded by a tall, wooden fence."},
+{id: 309, w: "fighting", p: "n", d: "（尤指戰爭中的）戰鬥，搏鬥", s: "Fierce fighting has continued all day on the outskirts of the town."},
+{id: 310, w: "file", p: "n", d: "（尤指辦公室的）文件箱，文件夾，卷宗", s: "I need to buy a box file for my papers."},
+{id: 311, w: "financial", p: "adj", d: "財務的；財政的；金融的", s: "The company is currently facing some serious financial difficulties."},
+{id: 313, w: "fitness", p: "n", d: "健壯，健康", s: "I'm trying to improve my fitness by cycling to work."},
+{id: 314, w: "fixed", p: "adj", d: "確定的；固定的；不能變的", s: "The hotel offers a fixed price for the room."},
+{id: 315, w: "flag", p: "n", d: "旗，旗幟", s: "Flags of all the participating countries are flying outside the stadium."},
+{id: 316, w: "flood", p: "n", d: "洪水", s: "After the flood it took weeks for the water level to go down."},
+{id: 317, w: "flood", p: "v", d: "（使）充滿水；（使）淹沒", s: "Our washing machine broke down yesterday and flooded the kitchen."},
+{id: 318, w: "flour", p: "n", d: "（穀物磨成的）粉；（尤指）小麥粉", s: "Mix together the flour, sugar and raisins in a bowl."},
+{id: 319, w: "flow", p: "v", d: "（尤指液體、氣體或電）流動", s: "Lava from the volcano was flowing down the hillside."},
+{id: 320, w: "flow", p: "n", d: "流動；（向某方向的）移動", s: "The flow of the river is very strong here."},
+{id: 321, w: "fold", p: "v", d: "折疊，對折（尤指紙或布）；可折疊，可對折", s: "I folded the letter in half and put it in an envelope."},
+{id: 322, w: "folk", p: "n", d: "（尤指某一群體或類型的）人們", s: "The old folk in the village tell great stories."},
+{id: 323, w: "folk", p: "adj", d: "傳統的；（尤指）普通百姓的，流傳民間的", s: "She enjoys listening to traditional folk music from Ireland."},
+{id: 324, w: "following", p: "n", d: "接下來，下面的（常用於引出名單、報告等）", s: "The following is an extract from her diary."},
+{id: 325, w: "force", p: "n", d: "力，力量；力氣；（尤指）暴力，武力", s: "The force of the wind had brought down a great many trees."},
+{id: 326, w: "force", p: "v", d: "強迫，迫使", s: "I really have to force myself to be nice to him."},
+{id: 327, w: "forever", p: "adv", d: "永遠", s: "I like the house but I won't live there forever."},
+{id: 328, w: "frame", p: "n", d: "（圖畫、門、窗的）框，框架", s: "I bought a beautiful picture frame for the painting."},
+{id: 329, w: "frame", p: "v", d: "（措詞謹慎地）表達，說出", s: "The interview would have been better if the questions were framed precisely."},
+{id: 330, w: "freeze", p: "v", d: "（使）凍結，（使）結冰", s: "Water freezes to ice at a temperature of 0°C."},
+{id: 331, w: "frequently", p: "adv", d: "頻繁地，經常地", s: "We have prepared a list of frequently asked questions."},
+{id: 332, w: "friendship", p: "n", d: "友誼", s: "Their friendship goes back to when they were at school together."},
+{id: 333, w: "frighten", p: "v", d: "使害怕，使受驚", s: "He frightens me when he drives so fast."},
+{id: 334, w: "frightened", p: "adj", d: "害怕的，受驚的", s: "She gets frightened when he shouts at her."},
+{id: 335, w: "frightening", p: "adj", d: "可怕的，令人恐懼的", s: "It was a frightening thought to be alone there."},
+{id: 336, w: "frozen", p: "adj", d: "（水）結冰的，冰凍的；（食物）冷藏的", s: "They skated over the frozen lake."},
+{id: 337, w: "fry", p: "v", d: "油炸；油煎；油炒", s: "Fry the mushrooms in a little butter."},
+{id: 338, w: "fuel", p: "n", d: "燃料；燃燒劑", s: "Wood, coal, and oil are different kinds of fuel."},
+{id: 339, w: "function", p: "n", d: "功能，用途；職責", s: "The function of the veins is to carry blood to the heart."},
+{id: 340, w: "fur", p: "n", d: "（動物的）毛，毛皮", s: "She stroked the rabbit's soft fur."},
+{id: 341, w: "further", p: "adv", d: "更遠地，在更大程度上；進一步地", s: "I never got further than the first five pages of Ulysses."},
+{id: 342, w: "garage", p: "n", d: "車庫，汽車房", s: "Did you put the car in the garage?"},
+{id: 343, w: "gather", p: "v", d: "收集，搜集；聚集，集攏", s: "I went to several libraries to gather information about the plans."},
+{id: 344, w: "generally", p: "adv", d: "大體上，總體上", s: "Your health is generally good, despite a few minor problems."},
+{id: 345, w: "generation", p: "n", d: "（社會或家庭的）一代（人），同代人，同輩人", s: "The younger generation smokes less than their parents did."},
+{id: 346, w: "generous", p: "adj", d: "（尤指超乎一般或期望地）慷慨的，大方的；寬宏大量的，仁慈的", s: "He is a very generous man who helps everyone."},
+{id: 347, w: "gentle", p: "adj", d: "文靜的；和藹的；溫柔的", s: "She gave the child a gentle smile of encouragement."},
+{id: 348, w: "gentleman", p: "n", d: "先生（對男士的禮貌稱呼）", s: "Ladies and gentlemen, the show is about to begin."},
+{id: 349, w: "ghost", p: "n", d: "鬼，幽靈", s: "Do you believe in ghosts?"},
+{id: 350, w: "giant", p: "adj", d: "巨大的，特大的", s: "They used a giant earth-moving machine on the site."},
+{id: 351, w: "giant", p: "n", d: "（尤指兒童故事中兇殘的）巨人", s: "The children loved reading tales of giants and ogres."},
+{id: 352, w: "glad", p: "adj", d: "高興的；愉快的；樂意的", s: "We were glad about her success."},
+{id: 353, w: "global", p: "adj", d: "全球的，全世界的", s: "Climate change is a global problem that affects everyone."},
+{id: 354, w: "glove", p: "n", d: "（分手指的）手套", s: "She wore leather gloves to keep her hands warm."},
+{id: 355, w: "go", p: "n", d: "嘗試", s: "I've never done this before but I'll give it a go."},
+{id: 356, w: "goods", p: "n", d: "商品，貨物；私人財產", s: "There is a discount on all electrical goods this week."},
+{id: 357, w: "grade", p: "n", d: "等級，品級，級別", s: "He is suffering from a low-grade infection right now."},
+{id: 358, w: "graduate", p: "n", d: "大學畢業生，學士學位獲得者", s: "She is a Cambridge graduate with a degree in law."},
+{id: 359, w: "graduate", p: "v", d: "取得學士學位，大學畢業", s: "Lorna graduated from Freiburg University with a medical degree."},
+{id: 360, w: "grain", p: "n", d: "（尤指像稻穀、小麥等像草一樣的植物的）穀粒，穎果，穀（物）", s: "The farmer harvested many grains of wheat this year."},
+{id: 361, w: "grateful", p: "adj", d: "（尤指對其他人）感激的，表示感謝的", s: "I'm so grateful for all that you've done."},
+{id: 362, w: "growth", p: "n", d: "成長；生長；發育", s: "A balanced diet is essential for healthy growth."},
+{id: 363, w: "guard", p: "n", d: "衛兵，警衛；看守，守衛", s: "The prison guards watched the inmates very closely."},
+{id: 364, w: "guard", p: "v", d: "保衛，守衛，保護", s: "Soldiers guard the main doors of the embassy."},
+{id: 365, w: "guilty", p: "adj", d: "內疚的，愧疚的，自責的", s: "I feel so guilty about forgetting her birthday."},
+{id: 366, w: "hand", p: "v", d: "將…交給，將…遞給", s: "The waiter smiled politely as he handed me my bill."},
+{id: 367, w: "hang", p: "v", d: "懸掛，吊；吊著", s: "A heavy gold necklace hung around her neck."},
+{id: 368, w: "happiness", p: "n", d: "幸福，快樂", s: "Later in life she found happiness and peace of mind."},
+{id: 369, w: "hardly", p: "adv", d: "僅僅；幾乎不", s: "I could hardly hear her at the back."},
+{id: 370, w: "hate", p: "n", d: "憎恨，憎惡", s: "She gave him a look of pure hate."},
+{id: 371, w: "head", p: "v", d: "朝某特定方向行進", s: "I was heading out of the room when she called me back."},
+{id: 372, w: "headline", p: "n", d: "（報紙的）標題；（電視或廣播的）內容提要", s: "The news of his death was splashed in headlines."},
+{id: 373, w: "heating", p: "n", d: "供暖系統，暖氣設備", s: "Is the central heating on in the house today?"},
+{id: 374, w: "heavily", p: "adv", d: "在很大程度上；大量地", s: "She's heavily involved in the project."},
+{id: 375, w: "helicopter", p: "n", d: "直升機", s: "The injured were ferried to hospital by helicopter."},
+{id: 376, w: "highlight", p: "v", d: "使引起注意，強調", s: "The report highlights the need for improved safety."},
+{id: 377, w: "highlight", p: "n", d: "最精彩的部分", s: "Highlights of the match will be shown after the news."},
+{id: 378, w: "highly", p: "adv", d: "非常，極其", s: "She has a highly paid job in the city."},
+{id: 379, w: "hire", p: "v", d: "租，租用", s: "How much would it cost to hire a car for the weekend?"},
+{id: 380, w: "historic", p: "adj", d: "歷史上著名（或重要）的，有歷史意義的", s: "The city is full of beautiful historic buildings."},
+{id: 381, w: "historical", p: "adj", d: "歷史的；有關歷史的", s: "Many important historical documents were destroyed when the library was bombed."},
+{id: 382, w: "honest", p: "adj", d: "誠實的，可信的", s: "She is completely honest about her feelings and opinions."},
+{id: 383, w: "horrible", p: "adj", d: "極糟的；令人不快的", s: "He has got a horrible cold and cannot work."},
+{id: 384, w: "horror", p: "n", d: "恐懼；震驚；（…的）震驚性，恐怖性", s: "The crowd cried out in horror as the car burst into flames."},
+{id: 385, w: "host", p: "n", d: "主人，東道主", s: "We thanked our hosts for a very enjoyable evening."},
+{id: 386, w: "hunt", p: "v", d: "狩獵，打獵", s: "Some wild animals hunt for their food at night."},
+{id: 387, w: "hurricane", p: "n", d: "（尤指西大西洋的）颶風", s: "Florida was hit by a hurricane that did serious damage."},
+{id: 388, w: "hurry", p: "n", d: "匆忙，倉促", s: "We left in such a hurry that we forgot our tickets."},
+{id: 389, w: "hurry", p: "v", d: "（使）加快，催促", s: "You must hurry or you will be late for school."},
+{id: 390, w: "identity", p: "n", d: "身份；本身；特性", s: "The man's identity was kept secret during the investigation."},
+{id: 391, w: "ignore", p: "v", d: "不理睬，忽視", s: "She can be really irritating but I try to ignore her."},
+{id: 392, w: "illegal", p: "adj", d: "非法的，違法的", s: "Selling cigarettes to children under sixteen is illegal here."},
+{id: 393, w: "imaginary", p: "adj", d: "想像中的；虛構的", s: "As a child I had an imaginary friend."},
+{id: 394, w: "immediate", p: "adj", d: "立即的，立刻的", s: "We must make an immediate response."},
+{id: 395, w: "immigrant", p: "n", d: "（外來的）移民", s: "The city has a large immigrant population from Asia."},
+{id: 396, w: "impact", p: "n", d: "衝擊（力）；撞擊（力）", s: "The impact of the crash destroyed the car completely."},
+{id: 397, w: "impact", p: "v", d: "（對…）產生影響", s: "Falling export rates have impacted the country's economy quite considerably."},
+{id: 398, w: "import", p: "n", d: "進口商品", s: "The government placed new restrictions on foreign imports."},
+{id: 399, w: "import", p: "v", d: "進口", s: "We import a large number of cars from Japan."},
+{id: 400, w: "importance", p: "n", d: "重要性", s: "The health report stresses the importance of fresh food in a diet."},
+{id: 401, w: "impression", p: "n", d: "印象；感想", s: "I didn't get much of an impression of the place."},
+{id: 402, w: "impressive", p: "adj", d: "（因特殊、重要或巨大而）給人留下深刻印象的", s: "That was an impressive performance from such a young tennis player."},
+{id: 403, w: "improvement", p: "n", d: "改進，改善", s: "There has been a slight improvement in the economy recently."},
+{id: 404, w: "incredibly", p: "adv", d: "難以置信地", s: "Incredibly, no one was hurt in the accident."},
+{id: 405, w: "indeed", p: "adv", d: "的確，實在", s: "Indeed, it could be the worst environmental disaster in Europe this century."},
+{id: 406, w: "indicate", p: "v", d: "標示；表明；顯示；暗示", s: "Exploratory investigations have indicated large amounts of oil below the sea bed."},
+{id: 407, w: "indirect", p: "adj", d: "間接的", s: "The benefits from pure research are often indirect."},
+{id: 408, w: "indoor", p: "adj", d: "室內的，戶內的", s: "We enjoy playing indoor sports during the winter months."},
+{id: 409, w: "indoors", p: "adv", d: "往室內；在室內", s: "You should come indoors now because it is cold outside."},
+{id: 410, w: "influence", p: "n", d: "影響，作用；有影響的人（或物）", s: "Helen is a very good influence on him right now."},
+{id: 411, w: "influence", p: "v", d: "影響", s: "She's very good at making friends and influencing people."},
+{id: 412, w: "ingredient", p: "n", d: "（食品的）成分，材料", s: "The list of ingredients included 250 g of almonds."},
+{id: 413, w: "injure", p: "v", d: "傷害，損害", s: "A bomb exploded at the embassy, injuring several people."},
+{id: 414, w: "injured", p: "adj", d: "受傷的", s: "She was told to stay in bed to rest her injured back."},
+{id: 415, w: "innocent", p: "adj", d: "（人）無罪的", s: "He firmly believes that she is innocent of the crime."},
+{id: 416, w: "intelligence", p: "n", d: "智力，智慧", s: "The students were asked to take an intelligence test today."},
+{id: 417, w: "intend", p: "v", d: "打算，計劃", s: "We intend to go to Australia next year."},
+{id: 418, w: "intention", p: "n", d: "意圖，打算", s: "It was not my intention to exclude her from the list."},
+{id: 419, w: "invest", p: "v", d: "投（資），投入", s: "The institute will invest five million in the project."},
+{id: 420, w: "investigate", p: "v", d: "（尤指為揭開真相）調查，審查", s: "Police are investigating allegations of corruption involving senior executives."},
+{id: 421, w: "involved", p: "adj", d: "複雜的，複雜難懂的", s: "He gave a very involved reason for being late today."},
+{id: 422, w: "iron", p: "n", d: "鐵", s: "Iron rusts easily if it is left out in the rain."},
+{id: 423, w: "iron", p: "v", d: "熨（衣），燙平", s: "It takes about five minutes to iron a shirt properly."},
+{id: 424, w: "issue", p: "n", d: "問題；議題", s: "We need to discuss several important environmental issues today."},
+{id: 425, w: "IT", p: "n", d: "資訊技術（information technology 的縮寫）", s: "Bob studied mathematics at university, but now he's working in IT."},
+{id: 426, w: "journal", p: "n", d: "雜誌，期刊；報紙", s: "She published her research paper in a famous medical journal."},
+{id: 427, w: "judge", p: "n", d: "法官；審判員", s: "The case was heard by a British high-court judge."},
+{id: 428, w: "judge", p: "v", d: "（尤指認真考慮之後）斷定，判斷，估計", s: "It is really too soon to judge his performance."},
+{id: 429, w: "keen", p: "adj", d: "熱衷的；熱心的；渴望的", s: "They were very keen to start work as soon as possible."},
+{id: 430, w: "key", p: "v", d: "故意用鑰匙刮花一輛車", s: "He was angry because someone keyed his Porsche last night."},
+{id: 431, w: "keyboard", p: "n", d: "（電腦、打字機等的）鍵盤", s: "The program locks the keyboard until a password is given."},
+{id: 432, w: "kick", p: "v", d: "踢，踹", s: "I kicked the ball as hard as I could."},
+{id: 433, w: "kick", p: "n", d: "踢，踹", s: "He gave the ball a good kick."},
+{id: 434, w: "killing", p: "n", d: "謀殺", s: "Police are investigating a series of brutal killings in the area."},
+{id: 435, w: "kind", p: "adj", d: "寬容的；有益的；體貼的", s: "She's a very kind and thoughtful person."},
+{id: 436, w: "kiss", p: "v", d: "吻；接吻", s: "There was a young couple on the sofa, kissing passionately."},
+{id: 437, w: "kiss", p: "n", d: "吻", s: "You should go and give your granny a big kiss."},
+{id: 438, w: "knock", p: "n", d: "敲擊聲", s: "There was a loud knock on the front door yesterday."},
+{id: 439, w: "label", p: "n", d: "標籤，標牌", s: "Remember to put some address labels on the suitcases."},
+{id: 440, w: "label", p: "v", d: "貼標籤", s: "The parcel was clearly labelled \"Fragile\"."},
+{id: 441, w: "laboratory", p: "n", d: "實驗室；實驗大樓", s: "Scientists work in research laboratories to discover new medicines."},
+{id: 442, w: "lack", p: "n", d: "沒有…，…匱乏，…短缺", s: "Her only problem is a lack of confidence."},
+{id: 443, w: "lack", p: "v", d: "缺少，缺乏", s: "He just lacks a little confidence."},
+{id: 444, w: "latest", p: "adj", d: "最新的；最近的；最先進的", s: "Have you seen her latest movie?"},
+{id: 445, w: "lay", p: "v", d: "放置，安放，平放", s: "She laid the baby on the bed."},
+{id: 446, w: "layer", p: "n", d: "層；塗層", s: "The ozone layer protects the earth from the sun."},
+{id: 447, w: "lead", p: "n", d: "領先，佔優", s: "For the first time in the race Harrison is in the lead."},
+{id: 448, w: "leading", p: "adj", d: "主要的；頂級的，尖端的", s: "He is a leading expert on the country's ecology."},
+{id: 449, w: "leaf", p: "n", d: "葉，葉片，葉子，樹葉", s: "The wind blew a large palm leaf across the road."},
+{id: 450, w: "leather", p: "n", d: "皮革", s: "She bought a beautiful new leather handbag yesterday."},
+{id: 451, w: "legal", p: "adj", d: "法律的，法律上的，法律方面的", s: "You should seek legal advice before signing the contract."},
+{id: 452, w: "leisure", p: "n", d: "空閒，閒暇，休閒", s: "Reading books is one of my favourite leisure activities."},
+{id: 453, w: "length", p: "n", d: "長，長度", s: "The boat is ten metres in length."},
+{id: 454, w: "level", p: "adj", d: "高度相等的，等高的", s: "The top of the tree is level with his bedroom window."}
+    ];
+
+    let questionBank = [];
+
+    // Helper to find the actual word form in the sentence
+    function preprocessQuestions() {
+        questionBank = rawData.map(item => {
+            // Remove double quotes often found in CSV imports
+            let cleanSentence = item.s.replace(/^"|"$/g, '').replace(/""/g, '"');
+            let baseForm = item.w;
+            
+            // Default to base form
+            let matchedWord = baseForm;
+
+            // Try to find the conjugated form in the sentence
+            const tokens = cleanSentence.split(/[\s,.!?;:()"]+/);
+            
+            // Strategy 1: Look for word starting with base
+            let found = tokens.find(t => t.toLowerCase().startsWith(baseForm.toLowerCase()));
+            
+            // Strategy 2: If not found, and base ends in 'e', look for base minus 'e' (e.g. manipulate -> manipulated)
+            if (!found && baseForm.endsWith('e')) {
+                let stem = baseForm.slice(0, -1);
+                found = tokens.find(t => t.toLowerCase().startsWith(stem.toLowerCase()));
+            }
+
+            // Strategy 3: If not found, and base ends in 'y', look for base minus 'y' (e.g. try -> tries)
+            if (!found && baseForm.endsWith('y')) {
+                let stem = baseForm.slice(0, -1);
+                found = tokens.find(t => t.toLowerCase().startsWith(stem.toLowerCase()));
+            }
+            
+            // Strategy 4: Exact match check (fallback)
+            if (!found) {
+                 found = tokens.find(t => t.toLowerCase() === baseForm.toLowerCase());
+            }
+
+            if (found) {
+                // Remove any trailing non-letter characters that might have stuck
+                matchedWord = found.replace(/[^a-zA-Z-]$/g, '');
+            }
+
+            return {
+                word: matchedWord,
+                baseForm: baseForm,
+                pos: item.p,
+                definition_ch: item.d.replace(/^"|"$/g, ''), // Clean quotes from definition
+                sentence: cleanSentence
+            };
+        });
+    }
+
+    function createBlanks(bank) {
+        bank.forEach(q => {
+            const escapedWord = q.word.replace(/[.*+?^${}()|[]]/g, '\\$&'); 
+            const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi');
+            
+            if (regex.test(q.sentence)) {
+                q.sentence = q.sentence.replace(regex, '_______');
+            } else {
+                 // Fallback if word identification failed slightly (e.g. case mismatch or punctuation)
+                 // Try case insensitive string replace
+                 const lowerSentence = q.sentence.toLowerCase();
+                 const lowerWord = q.word.toLowerCase();
+                 const index = lowerSentence.indexOf(lowerWord);
+                 if (index !== -1) {
+                     q.sentence = q.sentence.substring(0, index) + '_______' + q.sentence.substring(index + lowerWord.length);
+                 }
+            }
+        });
+        return bank;
+    }
+
+    function correctIndefiniteArticles(bank) {
+        const articleRegex = /(?<!\/)\b(a|an)\s+_______/gi;
+        const replacement = 'a/an _______';
+
+        bank.forEach(question => {
+            if (question.sentence.startsWith('A _______')) {
+                question.sentence = question.sentence.replace('A _______', 'A/An _______');
+            } else if (question.sentence.startsWith('An _______')) {
+                question.sentence = question.sentence.replace('An _______', 'A/An _______');
+            } else {
+                question.sentence = question.sentence.replace(articleRegex, replacement);
+            }
+        });
+        return bank;
+    }
+
+    // Initialize Data
+    preprocessQuestions();
+    
+    // Run the blank creation script
+    questionBank = createBlanks(questionBank);
+    
+    // Then run the article correction script
+    questionBank = correctIndefiniteArticles(questionBank);
+
+    const startScreen = document.getElementById('start-screen');
+    const quizScreen = document.getElementById('quiz-screen');
+    const endScreen = document.getElementById('end-screen');
+    const questionCounter = document.getElementById('question-counter');
+    const scoreCounter = document.getElementById('score-counter');
+    const questionText = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options-container');
+    const feedbackContainer = document.getElementById('feedback-container');
+    const nextBtn = document.getElementById('next-btn');
+    const finalScore = document.getElementById('final-score');
+    const endComment = document.getElementById('end-comment');
+    const restartBtn = document.getElementById('restart-btn');
+    const returnBtn = document.getElementById('return-btn');
+    const revisionContainer = document.getElementById('revision-container');
+    const revisionList = document.getElementById('revision-list');
+
+    let currentQuestions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let questionsToAttempt = 0;
+    let answeredIncorrectly = false;
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function startGame(num) {
+        questionsToAttempt = Math.min(num, questionBank.length);
+        score = 0;
+        currentQuestionIndex = 0;
+        const shuffledBank = shuffleArray([...questionBank]);
+        currentQuestions = shuffledBank.slice(0, questionsToAttempt);
+
+        revisionContainer.style.display = 'none';
+        startScreen.style.display = 'none';
+        endScreen.style.display = 'none';
+        quizScreen.style.display = 'block';
+
+        displayQuestion();
+    }
+
+    function displayQuestion() {
+        answeredIncorrectly = false;
+        feedbackContainer.textContent = '';
+        nextBtn.style.display = 'none';
+        nextBtn.textContent = "Next Question"; // Reset default text
+        const question = currentQuestions[currentQuestionIndex];
+
+        questionCounter.textContent = `Question: ${currentQuestionIndex + 1} / ${questionsToAttempt}`;
+        scoreCounter.textContent = `Score: ${score}`;
+
+        const blankSpan = `<span class="blank"></span>`;
+        const sentence = question.sentence.replace('_______', blankSpan);
+        questionText.innerHTML = sentence;
+
+        // Check if the blank is at the start of the sentence
+        const cleanSentence = question.sentence.trim().replace(/^['"“]+/, '');
+        const isStartOfSentence = cleanSentence.startsWith('_______') || cleanSentence.startsWith('A/An _______');
+
+        const correctOption = question;
+        const distractors = getDistractors(correctOption);
+
+        const options = shuffleArray([correctOption, ...distractors]);
+
+        optionsContainer.innerHTML = '';
+        options.forEach(option => {
+            const button = document.createElement('button');
+            
+            // If the blank is at the start of the sentence, capitalize the first letter of ALL options
+            let displayWord = option.word;
+            if (isStartOfSentence) {
+                displayWord = displayWord.charAt(0).toUpperCase() + displayWord.slice(1);
+            }
+
+            button.textContent = displayWord;
+            button.classList.add('option-btn');
+            button.dataset.word = option.word; // Keep original word for checking correctness
+            button.dataset.baseForm = option.baseForm;
+            button.dataset.pos = option.pos;
+            button.dataset.definition = option.definition_ch;
+            button.addEventListener('click', checkAnswer);
+            optionsContainer.appendChild(button);
+        });
+    }
+
+    function conjugate(base, inflection) {
+        if (!inflection || base === inflection) return base;
+
+        const vowels = "aeiou";
+        const lastChar = base.slice(-1);
+        const secondLastChar = base.slice(-2, -1);
+
+        if (inflection === 's') {
+            if (lastChar === 'y' && !vowels.includes(secondLastChar)) {
+                return base.slice(0, -1) + 'ies';
+            }
+            if (['s', 'x', 'z'].includes(lastChar) || ['sh', 'ch'].includes(base.slice(-2))) {
+                return base + 'es';
+            }
+            return base + 's';
+        }
+        if (inflection === 'd' || inflection === 'ed') {
+            if (lastChar === 'e') {
+                return base + 'd';
+            }
+            if (lastChar === 'y' && !vowels.includes(secondLastChar)) {
+                return base.slice(0, -1) + 'ied';
+            }
+            if (base.length > 1 && !vowels.includes(lastChar) && vowels.includes(secondLastChar) && !['w', 'x', 'y'].includes(lastChar)) {
+                 const thirdLastChar = base.slice(-3,-2);
+                 if (base.length === 2 || !vowels.includes(thirdLastChar)) {
+                    return base + lastChar + 'ed';
+                 }
+            }
+            return base + 'ed';
+        }
+        if (inflection === 'ing') {
+             if (base.endsWith('ie')) {
+                return base.slice(0, -2) + 'ying';
+            }
+            if (lastChar === 'e' && !base.endsWith('ee')) {
+                return base.slice(0, -1) + 'ing';
+            }
+            if (base.length > 1 && !vowels.includes(lastChar) && vowels.includes(secondLastChar) && !['w', 'x', 'y'].includes(lastChar)) {
+                const thirdLastChar = base.slice(-3,-2);
+                if (base.length === 2 || !vowels.includes(thirdLastChar)) {
+                   return base + lastChar + 'ing';
+                }
+            }
+            return base + 'ing';
+        }
+
+        return base;
+    }
+
+    function getDistractors(correctOption) {
+        const distractors = [];
+        const usedBaseForms = new Set([correctOption.baseForm]);
+        let inflection = '';
+
+        // Determine inflection based on the difference between the word in sentence and base form
+        if (correctOption.word !== correctOption.baseForm) {
+            if (correctOption.pos === 'v') {
+                if (correctOption.word.endsWith('s') && !correctOption.word.endsWith('ss')) inflection = 's';
+                else if (correctOption.word.endsWith('ed')) inflection = 'ed';
+                else if (correctOption.word.endsWith('d') && !correctOption.baseForm.endsWith('d')) inflection = 'd';
+                else if (correctOption.word.endsWith('ing')) inflection = 'ing';
+            } else if (correctOption.pos === 'n') {
+                if (correctOption.word.endsWith('ies')) inflection = 's'; // simplistic check for y->ies
+                else if (correctOption.word.endsWith('s') && !correctOption.word.endsWith('ss')) inflection = 's';
+            }
+        }
+
+        // Get all valid candidates (same POS, different base form)
+        let candidates = shuffleArray(questionBank.filter(q => q.pos === correctOption.pos && q.baseForm !== correctOption.baseForm));
+        
+        // Attempt to find candidates with different starting letters
+        const correctFirstChar = correctOption.word.charAt(0).toLowerCase();
+        const usedFirstChars = new Set([correctFirstChar]);
+
+        // First pass: Try to find unique starting letters
+        for (const candidate of candidates) {
+            if (distractors.length >= 3) break;
+            
+            const candidateFirstChar = candidate.baseForm.charAt(0).toLowerCase();
+            
+            if (!usedBaseForms.has(candidate.baseForm) && !usedFirstChars.has(candidateFirstChar)) {
+                const distractorBaseForm = candidate.baseForm;
+                const conjugatedWord = conjugate(distractorBaseForm, inflection);
+
+                distractors.push({
+                    word: conjugatedWord,
+                    baseForm: distractorBaseForm,
+                    pos: candidate.pos,
+                    definition_ch: candidate.definition_ch
+                });
+                usedBaseForms.add(distractorBaseForm);
+                usedFirstChars.add(candidateFirstChar);
+            }
+        }
+
+        // Second pass: Fill remaining slots if we couldn't find enough unique starting letters
+        if (distractors.length < 3) {
+            for (const candidate of candidates) {
+                if (distractors.length >= 3) break;
+                if (!usedBaseForms.has(candidate.baseForm)) {
+                    const distractorBaseForm = candidate.baseForm;
+                    const conjugatedWord = conjugate(distractorBaseForm, inflection);
+
+                    distractors.push({
+                        word: conjugatedWord,
+                        baseForm: distractorBaseForm,
+                        pos: candidate.pos,
+                        definition_ch: candidate.definition_ch
+                    });
+                    usedBaseForms.add(distractorBaseForm);
+                }
+            }
+        }
+
+        return distractors;
+    }
+
+    function checkAnswer(e) {
+        const selectedButton = e.target;
+        const selectedWord = selectedButton.dataset.word;
+        const correctWord = currentQuestions[currentQuestionIndex].word;
+
+        const baseForm = selectedButton.dataset.baseForm;
+        const pos = selectedButton.dataset.pos;
+        const definition = selectedButton.dataset.definition;
+        feedbackContainer.textContent = `${baseForm}: (${pos}) ${definition}`;
+
+        if (selectedWord === correctWord) {
+            selectedButton.classList.add('correct');
+            if (!answeredIncorrectly) {
+                score++;
+                scoreCounter.textContent = `Score: ${score}`;
+            }
+            disableOptions();
+            
+            // Change button text if it's the last question
+            if (currentQuestionIndex === questionsToAttempt - 1) {
+                nextBtn.textContent = "Finish Quiz";
+            } else {
+                nextBtn.textContent = "Next Question";
+            }
+            
+            nextBtn.style.display = 'inline-block';
+        } else {
+            selectedButton.classList.add('incorrect');
+            selectedButton.disabled = true;
+            answeredIncorrectly = true;
+        }
+    }
+
+    function disableOptions() {
+        Array.from(optionsContainer.children).forEach(button => {
+            button.disabled = true;
+        });
+    }
+
+    function handleNextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questionsToAttempt) {
+            displayQuestion();
+        } else {
+            endGame();
+        }
+    }
+
+    function endGame() {
+        quizScreen.style.display = 'none';
+        endScreen.style.display = 'block';
+
+        finalScore.textContent = `${score} / ${questionsToAttempt}`;
+        const percentage = (score / questionsToAttempt) * 100;
+
+        let comment = '';
+        if (percentage === 100) {
+            comment = "Flawless! You've mastered these words. Well done!";
+        } else if (percentage >= 80) {
+            comment = "Excellent work! You have a strong command of these words.";
+        } else if (percentage >= 60) {
+            comment = "Good job! A little more revision will make you an expert.";
+        } else if (percentage >= 40) {
+            comment = "Solid effort. Keep practicing to get more familiar with the words.";
+        } else {
+            comment = "A good start. Do some revision and try again to boost your score!";
+        }
+        endComment.textContent = comment;
+
+        displayRevisionList();
+    }
+
+    function displayRevisionList() {
+        revisionContainer.style.display = 'block';
+        revisionList.innerHTML = '';
+
+        currentQuestions.forEach(question => {
+            const item = document.createElement('div');
+            item.classList.add('revision-item');
+
+            let displayWord = question.word;
+            if (question.sentence.startsWith('_______') || question.sentence.startsWith('A/An _______')) {
+                displayWord = displayWord.charAt(0).toUpperCase() + displayWord.slice(1);
+            }
+
+            const fullSentence = question.sentence.replace('_______', `<strong>${displayWord}</strong>`);
+
+            item.innerHTML = `
+                <p class="word-info">${question.baseForm} <span>(${question.pos}) ${question.definition_ch}</span></p>
+                <p class="sentence-info">${fullSentence}</p>
+            `;
+            revisionList.appendChild(item);
+        });
+    }
+
+    function resetToTitle() {
+        endScreen.style.display = 'none';
+        quizScreen.style.display = 'none';
+        startScreen.style.display = 'block';
+    }
+
+    nextBtn.addEventListener('click', handleNextQuestion);
+    restartBtn.addEventListener('click', resetToTitle);
+    returnBtn.addEventListener('click', resetToTitle);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        startScreen.style.display = 'block';
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    });
+
+</script>
+
+
+
+</body></html>
