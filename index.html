@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta name="x-poe-datastore-behavior" content="local_only">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
 <meta charset="UTF-8">
@@ -38,10 +40,10 @@
         background-attachment: fixed;
         color: var(--text-main);
         margin: 0;
-        padding: 20px; /* Ensure padding exists on all screens */
+        padding: 20px; 
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; /* Centers vertically on desktop */
         min-height: 100vh;
         line-height: 1.5;
     }
@@ -74,7 +76,6 @@
         text-align: center;
         position: relative;
         overflow: hidden;
-        /* Ensure container doesn't touch edges on mobile */
         margin: auto; 
     }
 
@@ -415,21 +416,22 @@
     /* Tablet and Mobile Responsiveness */
     @media (max-width: 1024px) {
         body {
-            /* KEEP PADDING so background is visible */
+            /* FIX: Changed alignment to start from top on mobile */
+            align-items: flex-start; 
             padding: 15px; 
-            align-items: flex-start; /* Aligns container to top */
+            min-height: 100vh;
         }
         
         .app-container {
             padding: 20px;
-            /* Maintain rounded corners */
             border-radius: 20px; 
-            /* Remove full height restriction so it looks like a card */
             min-height: auto; 
             display: flex;
             flex-direction: column;
-            /* Slightly more transparent on mobile to blend better */
             background-color: rgba(255, 255, 255, 0.92);
+            /* FIX: Added margin-top to ensure it doesn't stick to the very top edge */
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         /* Compact Header */
@@ -1460,6 +1462,5 @@
 
 </script>
 
-
-
-</body></html>
+</body>
+</html>
